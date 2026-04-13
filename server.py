@@ -22,9 +22,7 @@ mcp = FastMCP(
 # Register tools, prompts, and resources
 register_all_tools(mcp)
 register_all_prompts(mcp)
-register_all_resources(mcp)
-
-def main():
+register_all_resources(mcp)\n\nfrom friday.memory import register_all_memory\nregister_all_memory(mcp)\n\ndef main():
     mcp.run(transport='sse')
 
 if __name__ == "__main__":

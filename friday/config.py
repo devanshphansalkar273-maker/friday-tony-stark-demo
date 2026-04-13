@@ -15,7 +15,4 @@ class Config:
 
     # External API keys (add as needed)
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
-    SEARCH_API_KEY: str = os.getenv("SEARCH_API_KEY", "")
-
-
-config = Config()
+SEARCH_API_KEY: str = os.getenv("SEARCH_API_KEY", "")\n\n    MEMORY_DB_PATH: str = "friday/memory/chroma_db"\n\nconfig = Config()

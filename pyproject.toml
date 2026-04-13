@@ -7,14 +7,29 @@ requires-python = ">=3.11"
 dependencies = [
     "fastmcp",
     "httpx",
-    "livekit-agents[deepgram,groq,openai,sarvam,silero]>=1.5.1",
-    "livekit-plugins-google>=1.5.1",
+    "livekit-agents[deepgram,groq,openai,sarvam,silero]>=1.5.1",  # Deprecate later
+    "livekit-plugins-google>=1.5.1",  # Deprecate
     "python-dotenv",
+    "chromadb>=0.5.0",
+    "sentence-transformers>=3.0.1",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "schedule",
+    "requests",
+    "ollama",
+    "speechrecognition",
+    "pyttsx3",
+    "streamlit",
+    "faiss-cpu",
+    "joblib",
 ]
 
 [project.scripts]
 friday = "server:main"
-friday_voice = "agent_friday:dev" # Points to the wrapper
+friday_voice = "agent_friday:dev"
+autonomous = "friday.autonomous.run:main"
+stark = "friday.main:main"  # New local main
 
 [build-system]
 requires = ["hatchling"]
