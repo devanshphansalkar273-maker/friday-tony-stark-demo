@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776101665570,
+  "projectRoot": "C:\\Users\\Croma\\OneDrive\\Desktop\\Documents\\GitHub\\friday-tony-stark-demo",
+  "techStack": {
+    "languages": [
+      {
+        "name": "Python",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "pyproject.toml"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": "pytest",
+    "lintCommand": "ruff check",
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "friday": {
+      "path": "friday",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1776101665498,
+      "keyFiles": [
+        "config.py",
+        "main.py",
+        "__init__.py"
+      ]
+    },
+    "learning": {
+      "path": "learning",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1776101665501,
+      "keyFiles": [
+        "trading.log"
+      ]
+    },
+    "logs": {
+      "path": "logs",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1776101665502,
+      "keyFiles": [
+        "decisions.log"
+      ]
+    },
+    "stark-ai": {
+      "path": "stark-ai",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776101665503,
+      "keyFiles": []
+    },
+    "venv": {
+      "path": "venv",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776101665504,
+      "keyFiles": []
+    },
+    "friday\\data": {
+      "path": "friday\\data",
+      "purpose": "Data files",
+      "fileCount": 2,
+      "lastAccessed": 1776101665506,
+      "keyFiles": [
+        "loader.py",
+        "validator.py"
+      ]
+    },
+    "venv\\Lib": {
+      "path": "venv\\Lib",
+      "purpose": "Library code",
+      "fileCount": 0,
+      "lastAccessed": 1776101665509,
+      "keyFiles": []
+    },
+    "venv\\Scripts": {
+      "path": "venv\\Scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 0,
+      "lastAccessed": 1776101665510,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}

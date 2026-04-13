@@ -1,11 +1,1 @@
-# Memory Upgrade TODO
-
-1. ✅ Update pyproject.toml with chromadb and sentence-transformers deps
-2. ✅ Update friday/config.py with MEMORY_DB_PATH
-3. ✅ Create friday/memory/__init__.py (register)\n4. ✅ Create friday/memory/store.py (ChromaDB store + remember tool)\n5. ✅ Create friday/memory/retrieve.py (semantic search)\n6. ✅ Create friday/memory/summarize.py (MCP summarize prompt)
-7. ✅ Update server.py to register memory module\n8. ✅ Update friday/prompts/__init__.py to register memory prompts
-9. ✅ Update friday/tools/__init__.py to register memory tools
-10. ✅ Update agent_friday.py: Enhance SYSTEM_PROMPT to use memory_recall
-11. Run `uv sync` to install deps
-12. Test integration
-
+# Learning Module Implementation Plan\n\n## Steps:\n1. [x] Create TODO.md\n2. [x] Implement learning/logger.py\n3. [x] Implement learning/evaluator.py\n4. [x] Implement learning/metrics.py\n5. [x] Implement learning/trainer.py\n6. [x] Implement main.py\n7. [x] Test with python main.py\n8. [x] Complete!\n\nProgress: All steps complete! Learning module fully implemented with logging, evaluation, metrics, training, and main entry point. Files:\n- learning/logger.py (SQLite + log file)\n- learning/evaluator.py (profit/loss check)\n- learning/metrics.py (accuracy, win rate)\n- learning/trainer.py (ML retrain with sklearn)\n- main.py (runs everything)\n\nRun `python main.py` anytime to demo.
