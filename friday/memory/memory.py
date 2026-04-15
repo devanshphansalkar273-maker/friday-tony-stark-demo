@@ -1,1 +1,20 @@
-\"\"\"Memory facade for simple key-value + conversation history.\"\"\"\n\nfrom .store import store_memory, retrieve_memory\n\nclass Memory:\n    def __init__(self):\n        self.history = []\n\n    def remember(self, key: str, value: str):\n        store_memory(key, value)\n        self.history.append(value)\n\n    def recall(self, key: str) -> str:\n        return retrieve_memory(key)\n\n    def get_context(self) -> str:\n        return ' | '.join(self.history[-5:])\n\nmemory = Memory()
+"""Memory facade for simple key-value + conversation history."""
+
+from .store import store_memory, retrieve_memory
+
+class Memory:
+    def __init__(self):
+        self.history = []
+
+    def remember(self, key: str, value: str):
+        store_memory(f"{key}: {value}")
+        self.history.append(f"{key}: {value}")
+
+    def recall(self, text: str) -> str:
+        return retrieve_memory(text)
+
+    def get_context(self) -> str:
+        # Return last 5 items of history as context
+        return ' | '.join(self.history[-5:])
+
+memory = Memory()

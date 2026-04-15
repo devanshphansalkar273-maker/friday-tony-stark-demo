@@ -1,5 +1,5 @@
 def route_command(text: str) -> str:
-    \"\"\"Enhanced router for tool calling. Returns module for execution.\"\"\"
+    """Enhanced router for tool calling. Returns module for execution."""
     text_lower = text.lower()
     if any(word in text_lower for word in ['open', 'close', 'app', 'calculator', 'chrome', 'shutdown', 'restart', 'volume', 'shell']):
         return 'system.actions'
@@ -13,7 +13,10 @@ def route_command(text: str) -> str:
         return 'tools.web'
     if 'learn' in text_lower or 'train' in text_lower:
         return 'learning'
-    if 'schedule' in text_lower or 'remind' in text_lower:
-        return 'automation'
+    if any(word in text_lower for word in ['screenshot', 'take picture', 'capture screen']):
+        return 'automation.gui'
+    if any(word in text_lower for word in ['type', 'keyboard', 'write']):
+        return 'automation.gui'
+    if any(word in text_lower for word in ['mouse', 'cursor', 'click']):
+        return 'automation.gui'
     return 'llm'  # Default LLM response
-

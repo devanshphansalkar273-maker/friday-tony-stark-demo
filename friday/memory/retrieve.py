@@ -12,9 +12,9 @@ collection = chroma_client.get_collection(name="user_memory")
 def register(mcp):
     @mcp.tool()
     def recall(query: str, top_k: int = 3, user_id: str = "boss") -> str:
-        \"\"\"
+        """
         Retrieve top relevant memories semantically.
-        \"\"\"
+        """
         query_emb = model.encode([query])[0].tolist()
         
         results = collection.query(

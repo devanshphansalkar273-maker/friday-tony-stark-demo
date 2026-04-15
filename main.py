@@ -1,1 +1,22 @@
-#!/usr/bin/env python3\n\"\"\"Main entry point for Learning Module. Runs training, logging, evaluation, metrics.\"\"\"\n\nimport sys\nfrom learning.logger import init_db, log_decision\nfrom learning.trainer import retrain_model\nfrom learning.evaluator import evaluate_all, print_pending\nfrom learning.metrics import print_stats\n\nif __name__ == \"__main__\":\n    print(\"🚀 Starting FRIDAY Learning Module...\")\n    \n    # Step 1: Setup\n    init_db()\n    \n    # Step 2: Retrain model\n    retrain_model()\n    \n    # Step 3: Simulate/log decisions\n    trades = [\n        (\"AAPL\", \"buy\", 0.05, 0.9),\n        (\"GOOG\", \"sell\", -0.02, 0.75),\n        (\"TSLA\", \"buy\", 0.08, 0.85),\n    ]\n    trade_ids = []\n    for symbol, decision, pred_ret, conf in trades:\n        tid = log_decision(symbol, decision, pred_ret, conf)\n        trade_ids.append(tid)\n    \n    # Step 4: Evaluate\n    evaluate_all()\n    \n    # Step 5: Print stats\n    print_stats()\n    \n    print(\"✅ Learning module run complete. Check learning/trading.log and database.db.\")\n
+from core.agent import handle_input
+from voice.output import speak
+from voice.input import listen
+
+def main():
+    print("FRIDAY is running...", flush=True)
+
+    while True:
+        user_input = listen()
+
+        if not user_input:
+            continue
+
+        print("You:", user_input, flush=True)
+
+        response = handle_input(user_input)
+
+        print("FRIDAY:", response, flush=True)
+        speak(response)
+
+if __name__ == "__main__":
+    main()

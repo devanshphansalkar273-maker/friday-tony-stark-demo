@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-\"\"\"FRIDAY Stark Local Main - 100% Local AI Assistant.
+"""FRIDAY Stark Local Main - 100% Local AI Assistant.
 
 Usage:
   python friday/main.py voice     # Voice interaction (say 'friday' to wake)
   python friday/main.py cli       # Text CLI loop
   python friday/main.py auto      # Start autonomous scheduler/learning
   python friday/main.py stats     # Print learning metrics
-\"\"\"
+"""
 
 import sys
 import friday
@@ -15,7 +15,7 @@ from friday.automation.scheduler import scheduler, start_scheduler
 from friday.learning.metrics import print_stats
 
 if __name__ == '__main__':
-    print('FRIDAY - Tony Stark\\'s Local AI Online.')
+    print("FRIDAY - Tony Stark's Local AI Online.")
     
     agent = friday.agent
     
@@ -28,7 +28,7 @@ if __name__ == '__main__':
     if mode == 'voice':
         agent.run_voice_loop()
     elif mode == 'cli':
-        print('FRIDAY CLI. Type \\'exit\\' to quit.')
+        print("FRIDAY CLI. Type 'exit' to quit.")
         while True:
             text = input('You: ')
             if text.lower() == 'exit':
@@ -44,4 +44,3 @@ if __name__ == '__main__':
     else:
         print('Invalid mode. Use: voice/cli/auto/stats')
         print_stats()
-

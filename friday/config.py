@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 class Config:
     # Server identity
     SERVER_NAME: str = os.getenv("SERVER_NAME", "Friday")
@@ -15,4 +14,8 @@ class Config:
 
     # External API keys (add as needed)
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
-SEARCH_API_KEY: str = os.getenv("SEARCH_API_KEY", "")\n\n    MEMORY_DB_PATH: str = "friday/memory/chroma_db"\n\nconfig = Config()
+    SEARCH_API_KEY: str = os.getenv("SEARCH_API_KEY", "")
+
+    MEMORY_DB_PATH: str = "friday/memory/chroma_db"
+
+config = Config()

@@ -8,6 +8,7 @@ from friday.intelligence.strategy import get_best_stock
 from friday.learning.learning import learning
 from friday.autonomous.scheduler import scheduler
 from friday.voice.output import speak
+from friday.automation.gui import take_screenshot, type_text, move_mouse, click_current_pos, get_mouse_pos
 import friday.autonomous.scheduler
 
 class StarkAgent:
@@ -17,7 +18,7 @@ class StarkAgent:
         self.learning = learning
 
     def execute_tool(self, module_str: str, text: str) -> str:
-        \"\"\"Execute tool based on route.\"\"\"
+        """Execute tool based on route."""
         if module_str == 'system.actions':
             if 'open' in text.lower():
                 app = text.split('open ')[-1].strip('.')
@@ -42,7 +43,6 @@ class StarkAgent:
             elif 'delete file' in text.lower():
                 path = text.lower().split('delete file ')[1]
                 return delete_file(path)
-            # Add more...
         elif module_str == 'memory':
             if 'remember' in text.lower():
                 key, value = text.split('remember ')[1].split(':', 1)
@@ -54,13 +54,31 @@ class StarkAgent:
         elif module_str == 'intelligence':
             best = get_best_stock()
             self.learning.track_usage('stock_check')
-            return f\"Boss, best stock: {best['symbol']}, conf {best['combined_conf']:.1f}%\"
+            return f"Boss, best stock: {best['symbol']}, conf {best['combined_conf']:.1f}%"
         elif module_str == 'learning':
             self.learning.improve()
-            return \"Learning updated.\"
+            return "Learning updated."
         elif module_str == 'automation':
             scheduler.start()
-            return \"Automation started.\"
+            return "Automation started."
+        elif module_str == 'automation.gui':
+            if 'screenshot' in text.lower() or 'capture' in text.lower():
+                return take_screenshot()
+            elif 'type' in text.lower() or 'write' in text.lower():
+                content = text.split('type ')[-1] if 'type ' in text.lower() else text.split('write ')[-1]
+                return type_text(content)
+            elif 'click' in text.lower():
+                return click_current_pos()
+            elif 'mouse' in text.lower() or 'cursor' in text.lower():
+                if 'move' in text.lower():
+                    # Parse "move mouse to 100 200"
+                    parts = text.lower().split('move mouse to ')[-1].split()
+                    try:
+                        x, y = int(parts[0]), int(parts[1])
+                        return move_mouse(x, y)
+                    except:
+                        return "Failed to parse coordinates."
+                return get_mouse_pos()
         return 'Tool executed.'
 
     def process_input(self, text: str) -> str:
@@ -77,7 +95,7 @@ class StarkAgent:
             return result
 
         # LLM
-        prompt = f\"FRIDAY context: {context}\\nUser: {text}\\nYou are FRIDAY, Tony Stark's AI. Keep responses concise, helpful, witty.\"
+        prompt = f"FRIDAY context: {context}\nUser: {text}\nYou are FRIDAY, Tony Stark's AI. Keep responses concise, helpful, witty."
         response = self.llm(prompt)
         self.memory.remember('conversation', text + ' -> ' + response)
         return response
@@ -88,14 +106,13 @@ class StarkAgent:
         import sys
 
         def signal_handler(sig, frame):
-            print('\\nFRIDAY standing by.')
+            print('\nFRIDAY standing by.')
             sys.exit(0)
         signal.signal(signal.SIGINT, signal_handler)
 
-        print('FRIDAY online. Say \"friday\" to wake or Ctrl+C to stop.')
+        print('FRIDAY online. Say "friday" to wake or Ctrl+C to stop.')
         while True:
             text = listen()
             if 'friday' in text.lower():
                 resp = self.process_input(text)
                 speak(resp)
-
