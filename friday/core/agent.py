@@ -3,7 +3,7 @@ from friday.core.router import route_command
 from friday.memory.memory import memory
 from friday.system.actions import open_app, close_app, shutdown, restart, execute_shell
 from friday.system.files import create_file, delete_file, move_file, search_files
-from friday.tools.web import search_web  # Assume exists
+# web tools are registered via MCP, not imported here
 from friday.intelligence.strategy import get_best_stock
 from friday.learning.learning import learning
 from friday.autonomous.scheduler import scheduler

@@ -22,6 +22,16 @@ def log_prediction(symbol, conf):
     conn.close()
 
 
+def log_decision(symbol, decision, pred_return, conf):
+    init_db()
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute("INSERT INTO predictions (symbol, conf, timestamp, score) VALUES (?, ?, ?, ?)",
+              (symbol, conf, datetime.datetime.now().isoformat(), conf))
+    conn.commit()
+    conn.close()
+
+
 def update_outcome(symbol, actual_return):
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()

@@ -13,3 +13,9 @@ def start_learning_loop():
     thread = threading.Thread(target=learning_loop, daemon=True)
     thread.start()
     print("Learning loop started in background.")
+
+class Scheduler:
+    def start(self):
+        start_learning_loop()
+
+scheduler = Scheduler()

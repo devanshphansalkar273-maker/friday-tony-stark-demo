@@ -68,3 +68,11 @@ def retrieve_memory(text: str, user_id: str = "boss") -> str:
     if results['documents'] and results['documents'][0]:
         return " | ".join(results['documents'][0])
     return ""
+
+def register(mcp):
+    @mcp.tool()
+    def remember_fact(fact: str, user_id: str = "boss") -> str:
+        """
+        Store an important fact or preference about the user.
+        """
+        return store_memory(fact, user_id=user_id)

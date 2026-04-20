@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1776101665570,
+  "lastScanned": 1776280766961,
   "projectRoot": "C:\\Users\\Croma\\OneDrive\\Desktop\\Documents\\GitHub\\friday-tony-stark-demo",
   "techStack": {
     "languages": [
@@ -41,11 +41,28 @@
   },
   "customNotes": [],
   "directoryMap": {
+    "automation": {
+      "path": "automation",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776280766908,
+      "keyFiles": []
+    },
+    "core": {
+      "path": "core",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1776280766910,
+      "keyFiles": [
+        "agent.py",
+        "router.py"
+      ]
+    },
     "friday": {
       "path": "friday",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1776101665498,
+      "lastAccessed": 1776280766911,
       "keyFiles": [
         "config.py",
         "main.py",
@@ -55,40 +72,81 @@
     "learning": {
       "path": "learning",
       "purpose": null,
-      "fileCount": 1,
-      "lastAccessed": 1776101665501,
+      "fileCount": 6,
+      "lastAccessed": 1776280766913,
       "keyFiles": [
+        "database.db",
+        "evaluator.py",
+        "logger.py",
+        "metrics.py",
         "trading.log"
+      ]
+    },
+    "llm": {
+      "path": "llm",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1776280766914,
+      "keyFiles": [
+        "local_llm.py"
       ]
     },
     "logs": {
       "path": "logs",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1776101665502,
+      "lastAccessed": 1776280766915,
       "keyFiles": [
         "decisions.log"
       ]
+    },
+    "memory": {
+      "path": "memory",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776280766916,
+      "keyFiles": []
     },
     "stark-ai": {
       "path": "stark-ai",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1776101665503,
+      "lastAccessed": 1776280766917,
       "keyFiles": []
+    },
+    "system": {
+      "path": "system",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1776280766918,
+      "keyFiles": [
+        "actions.py"
+      ]
     },
     "venv": {
       "path": "venv",
       "purpose": null,
-      "fileCount": 0,
-      "lastAccessed": 1776101665504,
-      "keyFiles": []
+      "fileCount": 2,
+      "lastAccessed": 1776280766919,
+      "keyFiles": [
+        "pyvenv.cfg"
+      ]
+    },
+    "voice": {
+      "path": "voice",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1776280766920,
+      "keyFiles": [
+        "input.py",
+        "output.py"
+      ]
     },
     "friday\\data": {
       "path": "friday\\data",
       "purpose": "Data files",
       "fileCount": 2,
-      "lastAccessed": 1776101665506,
+      "lastAccessed": 1776280766923,
       "keyFiles": [
         "loader.py",
         "validator.py"
@@ -98,17 +156,88 @@
       "path": "venv\\Lib",
       "purpose": "Library code",
       "fileCount": 0,
-      "lastAccessed": 1776101665509,
+      "lastAccessed": 1776280766928,
       "keyFiles": []
     },
     "venv\\Scripts": {
       "path": "venv\\Scripts",
       "purpose": "Build/utility scripts",
-      "fileCount": 0,
-      "lastAccessed": 1776101665510,
-      "keyFiles": []
+      "fileCount": 66,
+      "lastAccessed": 1776280766930,
+      "keyFiles": [
+        "activate",
+        "activate.bat",
+        "activate.fish"
+      ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "friday\\core\\agent.py",
+      "accessCount": 4,
+      "lastAccessed": 1776281241132,
+      "type": "directory"
+    },
+    {
+      "path": "friday\\learning\\logger.py",
+      "accessCount": 3,
+      "lastAccessed": 1776281366216,
+      "type": "directory"
+    },
+    {
+      "path": "friday\\tools\\__init__.py",
+      "accessCount": 2,
+      "lastAccessed": 1776280800186,
+      "type": "file"
+    },
+    {
+      "path": "server.py",
+      "accessCount": 2,
+      "lastAccessed": 1776281039221,
+      "type": "directory"
+    },
+    {
+      "path": "friday\\intelligence\\__init__.py",
+      "accessCount": 2,
+      "lastAccessed": 1776281299126,
+      "type": "file"
+    },
+    {
+      "path": "friday\\autonomous\\scheduler.py",
+      "accessCount": 2,
+      "lastAccessed": 1776281442563,
+      "type": "file"
+    },
+    {
+      "path": "friday\\prompts\\__init__.py",
+      "accessCount": 2,
+      "lastAccessed": 1776281483870,
+      "type": "file"
+    },
+    {
+      "path": "friday\\config.py",
+      "accessCount": 1,
+      "lastAccessed": 1776281007763,
+      "type": "file"
+    },
+    {
+      "path": "friday\\tools\\web.py",
+      "accessCount": 1,
+      "lastAccessed": 1776281140548,
+      "type": "file"
+    },
+    {
+      "path": "friday\\intelligence\\strategy.py",
+      "accessCount": 1,
+      "lastAccessed": 1776281288840,
+      "type": "file"
+    },
+    {
+      "path": "friday\\learning\\learning.py",
+      "accessCount": 1,
+      "lastAccessed": 1776281350413,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }

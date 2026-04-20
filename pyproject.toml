@@ -23,6 +23,7 @@ dependencies = [
     "streamlit",
     "faiss-cpu",
     "joblib",
+    "pyautogui",
 ]
 
 [project.scripts]

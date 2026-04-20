@@ -10,4 +10,6 @@ def register_all_tools(mcp):
     """Register all tool groups onto the MCP server instance."""
     web.register(mcp)
     system.register(mcp)
-    register_retrieve(mcp)\n    from friday.intelligence import register_all_intelligence\n    register_all_intelligence(mcp)\n
+    register_retrieve(mcp)
+    from friday.intelligence import register_all_intelligence
+    register_all_intelligence(mcp)

@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"python -c \\\"\\nfrom mcp.server.fastmcp import FastMCP\\nfrom friday.tools import register_all_tools\\nfrom friday.prompts import register_all_prompts\\nfrom friday.resources import register_al...",
+  "error": "Exit code 1\n\rLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\rLoading weights: 100%|##########| 103/103 [00:00<00:00, 3328.20it/s]\r\n\u001b[1mBertModel LOAD REPORT\u001b[0m from: sentence-transformers/all-MiniLM-L6-v2\r\nKey                     | Status     |  | \r\n------------------------+------------+--+-\r\nembeddings.position_ids | UNEXPECTED |  | \r\n\r\nNotes:\r\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\r\nTraceback (most recent call ...",
+  "timestamp": "2026-04-15T19:31:15.120Z",
+  "retry_count": 1
+}
