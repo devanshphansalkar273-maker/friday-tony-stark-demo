@@ -24,6 +24,9 @@ dependencies = [
     "faiss-cpu",
     "joblib",
     "pyautogui",
+    "PyPDF2>=3.0.0",
+    "sympy>=1.12",
+    "python-docx>=0.8.11",
 ]
 
 [project.scripts]

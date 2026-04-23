@@ -29,6 +29,16 @@ def read_file(path: str) -> str:
             return f.read()
     return "File not found."
 
+def list_files(path: str = '.') -> str:
+    """List files and dirs in path."""
+    try:
+        p = Path(path)
+        if not p.exists():
+            return "Path not found."
+        items = [f.name for f in p.iterdir()]
+        return '\n'.join(items)
+    except Exception as e:
+        return f"Error listing: {str(e)}"
+
 if __name__ == '__main__':
     print(search_files('*.py', '.'))
-

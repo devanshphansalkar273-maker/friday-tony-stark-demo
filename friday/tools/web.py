@@ -84,7 +84,7 @@ def register(mcp):
     @mcp.tool()
     async def search_web(query: str) -> str:
         """Search the web for a given query and return a summary of results."""
-        return f"[stub] Search results for: {query}"
+        import urllib.request\n        import urllib.parse\n        import re\n        import html\n\n        url = f"https://duckduckgo.com/html/?q={urllib.parse.quote(query)}"\n        try:\n            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})\n            with urllib.request.urlopen(req) as resp:\n                html_text = resp.read().decode("utf-8")\n            # Simple regex for results\n            result_links = re.findall(r'<a class="result__a" href="//duckduckgo.com/l\\?uddg=(.*?)&rut=(.*?)" >(.*?)</a>', html_text, re.DOTALL)[:5]\n            out = "Search results:\n"\n            for i, (link_code, _, title) in enumerate(result_links, 1):\n                title = html.unescape(title.strip())\n                out += f"{i}. {title} (https://duckduckgo.com/?q={urllib.parse.quote(query)})\\n"\n            return out or "No results."\n        except Exception as e:\n            return f"Search error: {str(e)}"
 
     @mcp.tool()
     async def fetch_url(url: str) -> str:

@@ -1,5 +1,9 @@
 @echo off
-cd /d C:\Users\Croma\OneDrive\Desktop\Documents\GitHub\friday-tony-stark-demo
+cd /d %~dp0
 call venv\Scripts\activate
-python main.py
-pause
+
+start /b ollama serve
+
+timeout /t 10 /nobreak >nul
+
+start python ui\app.py

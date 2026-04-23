@@ -1,1 +1,13 @@
-# Learning Module Implementation Plan\n\n## Steps:\n1. [x] Create TODO.md\n2. [x] Implement learning/logger.py\n3. [x] Implement learning/evaluator.py\n4. [x] Implement learning/metrics.py\n5. [x] Implement learning/trainer.py\n6. [x] Implement main.py\n7. [x] Test with python main.py\n8. [x] Complete!\n\nProgress: All steps complete! Learning module fully implemented with logging, evaluation, metrics, training, and main entry point. Files:\n- learning/logger.py (SQLite + log file)\n- learning/evaluator.py (profit/loss check)\n- learning/metrics.py (accuracy, win rate)\n- learning/trainer.py (ML retrain with sklearn)\n- main.py (runs everything)\n\nRun `python main.py` anytime to demo.
+# Code Writing System TODO
+
+## Steps:
+- [x] 1. Read friday/llm/local_llm.py (confirm generate_response)
+
+- [x] 2. Create friday/system/code_writer.py (generate_code with LLM)
+- [x] 3. Create friday/system/code_runner.py (write_code_in_editor)
+- [x] 4. Edit friday/system/actions.py (add open_editor if needed) - using open_app
+
+- [ ] 5. Edit friday/tools/tools.py (add "write_code")
+- [ ] 6. Edit friday/core/router.py (detect write code intent)
+- [ ] 7. Test: "open notepad and write hello world python"
+- [ ] 8. Complete

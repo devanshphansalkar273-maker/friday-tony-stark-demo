@@ -8,12 +8,8 @@ def listen() -> str:
         print("Listening...")
         audio = r.listen(source, timeout=5)
     try:
-        text = r.recognize_google(audio)  # Local fallback whisper later
-        print(f"You said: {text}")
-        return text
-    except sr.UnknownValueError:
-        return ""
-    except sr.RequestError:
-        print("Speech service error - use text.")
+        print("Voice input placeholder - install local whisper for offline speech recognition.")
+        return ""  # Placeholder - replace with local whisper
+    except:
         return ""
 

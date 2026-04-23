@@ -1,19 +1,19 @@
 import threading
 import time
-from typing import Callable, Dict
+from typing import Callable, Dict, List, Tuple
 
-from numpy.random import f
 from friday.core.agent import StarkAgent
 from friday.learning.metrics import print_stats as show_stats
 
 class Scheduler:
     def __init__(self):
-        self.tasks: Dict[str, tuple[Callable, float]] = {}  # name: (func, interval)
+        self.tasks: Dict[str, Tuple[Callable, float, List]] = {}  # name: (func, interval, args)
         self.agent = StarkAgent()
         self.running = False
 
-    def add_task(self, name: str, func: Callable, interval: float):
-        self.tasks[name] = (func, interval)
+    def add_task(self, name: str, func: Callable, interval: float, args: List = []):
+        """Add task with optional args."""
+        self.tasks[name] = (func, interval, args)
 
     def start(self):
         self.running = True
@@ -23,13 +23,12 @@ class Scheduler:
 
     def _run_loop(self):
         while self.running:
-            for name, (func, interval) in self.tasks.items():
-                # Simple timer
+            for name, (func, interval, args) in self.tasks.items():
                 time.sleep(interval)
                 try:
-                    func()
+                    func(*args)
                 except Exception as e:
-                    print(f\"Task {name} error: {e}\")
+                    print(f"Task {name} error: {e}")
             time.sleep(1)
 
     def stop(self):
@@ -38,15 +37,14 @@ class Scheduler:
 # Example tasks
 def hourly_check():
     show_stats()
-    print(\"Hourly system check complete.\")
+    print("Hourly system check complete.")
 
 scheduler = Scheduler()
-scheduler.add_task(\"metrics\", hourly_check, 3600)  # 1 hour
+scheduler.add_task("metrics", hourly_check, 3600, [])
 
 def start_scheduler():
     scheduler.start()
 
 if __name__ == '__main__':
     start_scheduler()
-    input(\"Press enter to stop...\")
-
+    input("Press enter to stop...")
